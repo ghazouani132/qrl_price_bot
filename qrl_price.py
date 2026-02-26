@@ -2,7 +2,7 @@ import os
 import requests
 import time
 
-TELEGRAM_TOKEN = os.getenv("8396116673:AAEP8q3ZClcSdU3PZXQaOp2WR34JQS3wytc")
+TELEGRAM_TOKEN = os.getenv("PUT_YOUR_NEW_TOKEN_HERE")
 TELEGRAM_CHAT_ID = os.getenv("-1003732439601")
 CHECK_EVERY = 900
 
@@ -29,3 +29,4 @@ def run():
 
 if __name__ == "__main__":
     run()
+
