@@ -45,7 +45,7 @@ def run():
                 elif percent_change < 0:
                     arrow = "↓"
                 else:
-                    arrow = "→"
+                    arrow = " "
 
             msg = f"${price:.4f}\n{arrow} {percent_change:+.2f}%"
             send_telegram(msg)
@@ -57,5 +57,6 @@ def run():
 
 if __name__ == "__main__":
     run()
+
 
 
