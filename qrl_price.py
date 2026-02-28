@@ -41,9 +41,9 @@ def run():
             else:
                 percent_change = ((price - previous_price) / previous_price) * 100
                 if percent_change > 0:
-                    arrow = "🟢 ↑"
+                    arrow = "↑"
                 elif percent_change < 0:
-                    arrow = "🔴 ↓"
+                    arrow = "↓"
                 else:
                     arrow = "→"
 
@@ -57,4 +57,5 @@ def run():
 
 if __name__ == "__main__":
     run()
+
 
