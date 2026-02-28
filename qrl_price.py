@@ -30,15 +30,34 @@ def get_qrl_price():
 
 def run():
     print("Bot Started")
+    previous_price = None
+
     while True:
-        price, change = get_qrl_price()
+        price = get_qrl_price()
+
         if price is not None:
-            msg = f"${price:.4f}\n{change:.2f}%"
+            if previous_price is None:
+                arrow = "→"
+                percent_change = 0.0
+            else:
+                percent_change = ((price - previous_price) / previous_price) * 100
+                if percent_change > 0:
+                    arrow = "🟢 ↑"
+                elif percent_change < 0:
+                    arrow = "🔴 ↓"
+                else:
+                    arrow = "→"
+
+            msg = f"QRL: ${price:.4f}\n{arrow} {percent_change:+.2f}% (15m)"
             send_telegram(msg)
             print("Sent:", msg)
+
+            previous_price = price
+
         time.sleep(CHECK_EVERY)
 
 if __name__ == "__main__":
     run()
+
 
 
