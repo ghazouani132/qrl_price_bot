@@ -4,7 +4,7 @@ from datetime import datetime
 
 TELEGRAM_TOKEN   = os.getenv("TELEGRAM_TOKEN")
 TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
-CHECK_EVERY      = 900دقيقة
+CHECK_EVERY      = 900
 
 def send_telegram(msg):
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
@@ -33,3 +33,4 @@ def run():
 
 if __name__ == "__main__":
     run()
+
