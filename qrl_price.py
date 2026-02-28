@@ -47,7 +47,7 @@ def run():
                 else:
                     arrow = "→"
 
-            msg = f"QRL: ${price:.4f}\n{arrow} {percent_change:+.2f}% (15m)"
+            msg = f"${price:.4f}\n{arrow} {percent_change:+.2f}%"
             send_telegram(msg)
             print("Sent:", msg)
 
@@ -57,3 +57,4 @@ def run():
 
 if __name__ == "__main__":
     run()
+
