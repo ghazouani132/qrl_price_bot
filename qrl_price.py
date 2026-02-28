@@ -19,14 +19,13 @@ def send_telegram(msg):
 
 def get_qrl_price():
     try:
-        url = "https://api.coingecko.com/api/v3/simple/price?ids=quantum-resistant-ledger&vs_currencies=usd&include_24hr_change=true"
-        r   = requests.get(url).json()
-        price  = r["quantum-resistant-ledger"]["usd"]
-        change = r["quantum-resistant-ledger"]["usd_24h_change"]
-        return price, change
+        url = "https://api.coingecko.com/api/v3/simple/price?ids=quantum-resistant-ledger&vs_currencies=usd"
+        r = requests.get(url, timeout=15).json()
+        price = r["quantum-resistant-ledger"]["usd"]
+        return price
     except Exception as e:
         print(f"Error: {e}")
-        return None, None
+        return None
 
 def run():
     print("Bot Started")
@@ -58,6 +57,3 @@ def run():
 
 if __name__ == "__main__":
     run()
-
-
-
