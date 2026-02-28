@@ -1,6 +1,7 @@
 import requests
 import time
-from datetime import datetime
+import os
+from datetime
 
 TELEGRAM_TOKEN   = os.getenv("TELEGRAM_TOKEN")
 TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
@@ -33,4 +34,5 @@ def run():
 
 if __name__ == "__main__":
     run()
+
 
