@@ -1,8 +1,9 @@
 import requests
 import time
+import os
 
-TELEGRAM_TOKEN   = "TELEGRAM_TOKEN"
-TELEGRAM_CHAT_ID = -1003732439601
+TELEGRAM_TOKEN   = os.getenv("TELEGRAM_TOKEN")
+TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
 CHECK_EVERY      = 900
 
 def send_telegram(msg):
