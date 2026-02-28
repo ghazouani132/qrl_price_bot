@@ -3,13 +3,13 @@ import time
 import os
 
 TELEGRAM_TOKEN   = os.getenv("TELEGRAM_TOKEN")
-TELEGRAM_CHAT_ID = os.getenv("-1003732439601")
+TELEGRAM_CHAT_ID = os.getenv(" -1003732439601")
 CHECK_EVERY      = 900  # 15 minutes
 
 def send_telegram(msg):
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
     requests.post(url, data={
-        "chat_id": TELEGRAM_CHAT_ID,
+        "chat_id": -1003732439601,
         "text": msg,
         "parse_mode": "HTML"
     })
@@ -56,4 +56,5 @@ def run():
 
 if __name__ == "__main__":
     run()
+
 
