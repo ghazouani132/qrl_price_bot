@@ -36,7 +36,7 @@ def run():
 
         if price is not None:
             if previous_price is None:
-                arrow = " "
+                arrow = "→"
                 percent_change = 0.0
             else:
                 percent_change = ((price - previous_price) / previous_price) * 100
@@ -57,6 +57,7 @@ def run():
 
 if __name__ == "__main__":
     run()
+
 
 
 
