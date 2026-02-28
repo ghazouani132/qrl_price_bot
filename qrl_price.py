@@ -2,12 +2,12 @@ import requests
 import time
 from datetime import datetime
 
-TELEGRAM_TOKEN   = "8396116673:AAHjUA0VCK-qQlHjpRTi35JWw09DsPuSE1E"
+TELEGRAM_TOKEN   = "TELEGRAM_TOKEN"
 TELEGRAM_CHAT_ID = "-1003732439601"
 CHECK_EVERY      = 900  # 15 دقيقة
 
 def send_telegram(msg):
-    url = f"https://api.telegram.org/bot8396116673:AAHjUA0VCK-qQlHjpRTi35JWw09DsPuSE1E/sendMessage"
+    url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
     resp = requests.post(url, data={
         "chat_id": TELEGRAM_CHAT_ID,
         "text": msg,
@@ -57,6 +57,7 @@ def run():
 
 if __name__ == "__main__":
     run()
+
 
 
 
