@@ -8,7 +8,14 @@ CHECK_EVERY      = 900  # 15 دقيقة
 
 def send_telegram(msg):
     url = f"https://api.telegram.org/bot8396116673:AAHjUA0VCK-qQlHjpRTi35JWw09DsPuSE1E/sendMessage"
-    requests.post(url, data={"chat_id": TELEGRAM_CHAT_ID, "text": msg, "parse_mode": "HTML"})
+    resp = requests.post(url, data={
+        "chat_id": TELEGRAM_CHAT_ID,
+        "text": msg,
+        "parse_mode": "HTML"
+    }, timeout=15)
+
+    print("Telegram status:", resp.status_code)
+    print("Telegram response:", resp.text)
 
 def get_qrl_price():
     try:
@@ -33,4 +40,5 @@ def run():
 
 if __name__ == "__main__":
     run()
+
 
