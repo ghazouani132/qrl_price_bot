@@ -3,12 +3,12 @@ import requests
 import time
 from datetime import datetime
 
-TELEGRAM_TOKEN   = "8396116673:AAEP8q3ZClcSdU3PZXQaOp2WR34JQS3wytc"
+TELEGRAM_TOKEN   = "TELEGRAM_TOKEN"
 TELEGRAM_CHAT_ID = "-1003732439601"
 CHECK_EVERY      = 900  # 15 دقيقة
 
 def send_telegram(msg):
-    url = f"https://api.telegram.org/bot8396116673:AAEP8q3ZClcSdU3PZXQaOp2WR34JQS3wytc/sendMessage"
+    url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
     requests.post(url, data={"chat_id": TELEGRAM_CHAT_ID, "text": msg, "parse_mode": "HTML"})
 
 def get_qrl_price():
@@ -34,3 +34,4 @@ def run():
 
 if __name__ == "__main__":
     run()
+
