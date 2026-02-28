@@ -3,7 +3,7 @@ import time
 import os
 
 TELEGRAM_TOKEN   = os.getenv("TELEGRAM_TOKEN")
-TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
+TELEGRAM_CHAT_ID = os.getenv("-1003732439601")
 CHECK_EVERY      = 900  # 15 minutes
 
 def send_telegram(msg):
@@ -56,3 +56,4 @@ def run():
 
 if __name__ == "__main__":
     run()
+
