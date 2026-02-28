@@ -36,7 +36,7 @@ def run():
 
         if price is not None:
             if previous_price is None:
-                arrow = "→"
+                arrow = ""
                 percent_change = 0.0
             else:
                 percent_change = ((price - previous_price) / previous_price) * 100
@@ -45,7 +45,7 @@ def run():
                 elif percent_change < 0:
                     arrow = "↓"
                 else:
-                    arrow = " "
+                    arrow = ""
 
             msg = f"${price:.4f}\n{arrow} {percent_change:+.2f}%"
             send_telegram(msg)
@@ -57,6 +57,7 @@ def run():
 
 if __name__ == "__main__":
     run()
+
 
 
 
