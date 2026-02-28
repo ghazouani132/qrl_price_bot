@@ -1,12 +1,16 @@
 import requests
 import time
-from datetime import datetime
+import os
 
-TELEGRAM_TOKEN   = "TELEGRAM_TOKEN"
-TELEGRAM_CHAT_ID = "-1003732439601"
+TELEGRAM_TOKEN   = os.getenv("TELEGRAM_TOKEN")
+TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
 CHECK_EVERY      = 900  # 15 دقيقة
 
 def send_telegram(msg):
+    if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID:
+        print("Missing TELEGRAM_TOKEN or TELEGRAM_CHAT_ID in Railway Variables")
+        return
+
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
     resp = requests.post(url, data={
         "chat_id": TELEGRAM_CHAT_ID,
@@ -21,8 +25,7 @@ def get_qrl_price():
     try:
         url = "https://api.coingecko.com/api/v3/simple/price?ids=quantum-resistant-ledger&vs_currencies=usd"
         r = requests.get(url, timeout=15).json()
-        price = r["quantum-resistant-ledger"]["usd"]
-        return price
+        return r["quantum-resistant-ledger"]["usd"]
     except Exception as e:
         print(f"Error: {e}")
         return None
@@ -47,7 +50,12 @@ def run():
                 else:
                     arrow = ""
 
-            msg = f"${price:.4f}\n{arrow} {percent_change:+.2f}%"
+            # إذا ما في سهم، لا نضع فراغ زائد
+            if arrow:
+                msg = f"${price:.4f}\n{arrow} {percent_change:+.2f}%"
+            else:
+                msg = f"${price:.4f}\n{percent_change:+.2f}%"
+
             send_telegram(msg)
             print("Sent:", msg)
 
@@ -57,10 +65,3 @@ def run():
 
 if __name__ == "__main__":
     run()
-
-
-
-
-
-
-
